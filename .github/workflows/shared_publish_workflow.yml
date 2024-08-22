@@ -1,0 +1,73 @@
+name: Build and publish NuGet package
+
+on:
+  workflow_call:
+    inputs:
+      TARGET_TEST_LIB_NAME:
+        required: true
+        type: string
+      NUGET_PARAMS:
+        required: false
+        type: string
+    secrets:
+      NUGET_API_SOURCE_URL:
+        required: true
+      NUGET_API_KEY:
+        required: true
+      DEPENDENCY_TRACK_URL:
+        required: true
+      DEPENDENCY_TRACK_API_KEY:
+        required: true
+      DEPENDENCY_TRACK_PROJECT_GUID:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    env:
+      DOTNET_INSTALL_DIR: "~/.dotnet"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        working-directory: ./src
+        run: dotnet restore
+
+      - name: Test
+        working-directory: ./src
+        run: dotnet test -c Release SolidCode.CombinatorialTests.Core.Tests
+
+      - name: Install CycloneDX tool
+        run: export PATH="$PATH:/home/actions-runner/.dotnet/tools" && dotnet tool install --global CycloneDX
+
+      - name: Generate SBOM file
+        working-directory: ./src
+        run: export PATH="$PATH:/home/actions-runner/.dotnet/tools" && dotnet CycloneDX ./SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}/SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}.csproj
+
+      - name: Upload SBOM file to Dependency Track server
+        working-directory: ./src
+        run: |
+          curl -X POST "${{ secrets.DEPENDENCY_TRACK_URL }}/api/v1/bom" \
+          -H "Content-Type: multipart/form-data" \
+          -H "X-Api-Key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}" \
+          -F "project=${{ secrets.DEPENDENCY_TRACK_PROJECT_GUID }}" \
+          -F "bom=@bom.xml"
+
+      - name: Pack
+        working-directory: ./src/SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}
+        run: dotnet pack --configuration Release
+
+      - name: Publish
+        working-directory: ./src/SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}
+        run: dotnet nuget push "**/*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source ${{ secrets.NUGET_API_SOURCE_URL }} ${{ inputs.NUGET_PARAMS }}

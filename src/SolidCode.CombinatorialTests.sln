@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolidCode.CombinatorialTests.MSTest", "SolidCode.CombinatorialTests.MSTest\SolidCode.CombinatorialTests.MSTest.csproj", "{149630A9-DCFC-4CAA-A2D2-C08E87047B70}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolidCode.CombinatorialTests.XUnit", "SolidCode.CombinatorialTests.XUnit\SolidCode.CombinatorialTests.XUnit.csproj", "{17A72735-E241-49A6-A94E-A8E4700C9DBA}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SolidCode.CombinatorialTests.Core", "SolidCode.CombinatorialTests.Core\SolidCode.CombinatorialTests.Core.shproj", "{EE93720A-8F1A-4C98-897A-6FB294B8C9D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidCode.CombinatorialTests.Core.Tests", "SolidCode.CombinatorialTests.Core.Tests\SolidCode.CombinatorialTests.Core.Tests.csproj", "{EAE27BA1-A5F5-4B7C-B71E-2F4128756B7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{149630A9-DCFC-4CAA-A2D2-C08E87047B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149630A9-DCFC-4CAA-A2D2-C08E87047B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149630A9-DCFC-4CAA-A2D2-C08E87047B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149630A9-DCFC-4CAA-A2D2-C08E87047B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A72735-E241-49A6-A94E-A8E4700C9DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A72735-E241-49A6-A94E-A8E4700C9DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A72735-E241-49A6-A94E-A8E4700C9DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A72735-E241-49A6-A94E-A8E4700C9DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE27BA1-A5F5-4B7C-B71E-2F4128756B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE27BA1-A5F5-4B7C-B71E-2F4128756B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE27BA1-A5F5-4B7C-B71E-2F4128756B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE27BA1-A5F5-4B7C-B71E-2F4128756B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89C1B76B-74E4-4F15-9988-B2B678400804}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SolidCode.CombinatorialTests.Core\SolidCode.CombinatorialTests.Core.projitems*{149630a9-dcfc-4caa-a2d2-c08e87047b70}*SharedItemsImports = 5
+		SolidCode.CombinatorialTests.Core\SolidCode.CombinatorialTests.Core.projitems*{17a72735-e241-49a6-a94e-a8e4700c9dba}*SharedItemsImports = 5
+		SolidCode.CombinatorialTests.Core\SolidCode.CombinatorialTests.Core.projitems*{eae27ba1-a5f5-4b7c-b71e-2f4128756b7a}*SharedItemsImports = 5
+		SolidCode.CombinatorialTests.Core\SolidCode.CombinatorialTests.Core.projitems*{ee93720a-8f1a-4c98-897a-6fb294b8c9d4}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
