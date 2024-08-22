@@ -1,0 +1,22 @@
+name: Publish release xUnit-based package
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "release" ]
+    paths:
+      - 'src/SolidCode.CombinatorialTests.Core/**/*.*'
+      - 'src/SolidCode.CombinatorialTests.XUnit/**/*.*'
+
+jobs:
+  run-deploy:
+    uses: ./.github/workflows/shared_publish_workflow.yml
+    with:
+      TARGET_TEST_LIB_NAME: XUnit
+      NUGET_PARAMS: --skip-duplicate
+    secrets:
+      NUGET_API_SOURCE_URL: https://api.nuget.org/v3/index.json
+      NUGET_API_KEY: ${{ secrets.NUGET_ORG_API_KEY }}
+      DEPENDENCY_TRACK_URL: ${{ secrets.DEPENDENCY_TRACK_URL }}
+      DEPENDENCY_TRACK_API_KEY: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
+      DEPENDENCY_TRACK_PROJECT_GUID: ${{ secrets.DEPENDENCY_TRACK_PROJECT_GUID_XUNIT_RELEASE }}
