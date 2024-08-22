@@ -1,0 +1,35 @@
+name: Run tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ "release", "development" ]
+    paths-ignore:
+    - 'README.md'
+
+jobs:
+  test:
+    runs-on: self-hosted
+    env:
+      DOTNET_INSTALL_DIR: "~/.dotnet"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        working-directory: ./src
+        run: dotnet restore
+
+      - name: Run SolidCode.CombinatorialTests.CoreShared.Tests
+        working-directory: ./src
+        run: dotnet test -c Release SolidCode.CombinatorialTests.Core.Tests
