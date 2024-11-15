@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net8</TargetFrameworks>
-		<LangVersion>12.0</LangVersion>
+		<TargetFrameworks>netstandard2.0;net8.0;net9.0</TargetFrameworks>
+		<LangVersion>13.0</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\SolidCode.CombinatorialTests.MSTest.xml</DocumentationFile>
 
 		<Title>SolidCode.CombinatorialTests.MSTest</Title>
 		<Description>Provides attbutes to generate combinatorial test data for MSTest test methods.</Description>
-		<Version>1.0.0</Version>
+		<Version>1.1.0</Version>
 		<Copyright>Copyright ©️ 2024 Andrey Veselov</Copyright>
 
 		<IsPackable>true</IsPackable>
@@ -28,7 +28,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MSTest.TestFramework" Version="3.5.2" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.6.3" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
