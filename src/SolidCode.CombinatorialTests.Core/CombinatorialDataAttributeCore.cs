@@ -45,15 +45,13 @@ internal sealed class CombinatorialDataAttributeCore
 			int indexToUpdate = indexes.Length - 1;
 			while (true) {
 				indexes[indexToUpdate]++;
-				if (indexes[indexToUpdate] >= parameters[indexToUpdate].Count) {
-					indexes[indexToUpdate] = 0;
-					indexToUpdate--;
-					if (indexToUpdate < 0)
-						yield break;
-				}
-				else {
+				if (indexes[indexToUpdate] < parameters[indexToUpdate].Count)
 					break;
-				}
+
+				indexes[indexToUpdate] = 0;
+				indexToUpdate--;
+				if (indexToUpdate < 0)
+					yield break;
 			}
 		}
 	}
