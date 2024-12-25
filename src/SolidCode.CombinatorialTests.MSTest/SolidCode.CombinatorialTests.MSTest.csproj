@@ -9,7 +9,7 @@
 
 		<Title>SolidCode.CombinatorialTests.MSTest</Title>
 		<Description>Provides attbutes to generate combinatorial test data for MSTest test methods.</Description>
-		<Version>1.1.0</Version>
+		<Version>1.1.1</Version>
 		<Copyright>Copyright ©️ 2024 Andrey Veselov</Copyright>
 
 		<IsPackable>true</IsPackable>
@@ -28,7 +28,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MSTest.TestFramework" Version="3.6.3" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
