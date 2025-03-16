@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SolidCode.CombinatorialTests.Core.Tests/SolidCode.CombinatorialTests.Core.Tests.csproj" />
+  <Project Path="SolidCode.CombinatorialTests.Core/SolidCode.CombinatorialTests.Core.shproj" />
+  <Project Path="SolidCode.CombinatorialTests.MSTest/SolidCode.CombinatorialTests.MSTest.csproj" />
+  <Project Path="SolidCode.CombinatorialTests.XUnit/SolidCode.CombinatorialTests.XUnit.csproj" />
+</Solution>
