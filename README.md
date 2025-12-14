@@ -40,7 +40,6 @@ If the `sourceType` is not specified, the type of the current test class is used
 
 ### Example
 ```csharp
-[TestMethod]
 [CombinatorialData]
 public async Task SomeTestAsync(
     [CombinatorialValues(7, 42, 255)]

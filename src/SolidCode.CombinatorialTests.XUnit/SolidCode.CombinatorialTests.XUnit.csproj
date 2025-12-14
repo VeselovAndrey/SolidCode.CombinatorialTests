@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net8.0;net9.0</TargetFrameworks>
-		<LangVersion>13.0</LangVersion>
+		<TargetFrameworks>netstandard2.0;net8.0;net9.0;net10.0</TargetFrameworks>
+		<LangVersion>14.0</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\SolidCode.CombinatorialTests.XUnit.xml</DocumentationFile>
 
 		<Title>SolidCode.CombinatorialTests.MSTest</Title>
 		<Description>Provides attbutes to generate combinatorial test data for xUnit test methods.</Description>
-		<Version>1.1.1</Version>
+		<Version>1.1.2</Version>
 		<Copyright>Copyright ©️ 2024 Andrey Veselov</Copyright>
 
 		<IsPackable>true</IsPackable>
