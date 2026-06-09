@@ -53,7 +53,7 @@ jobs:
 
       - name: Generate SBOM file
         working-directory: ./src
-        run: export PATH="$PATH:/home/actions-runner/.dotnet/tools" && dotnet CycloneDX ./SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}/SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}.csproj
+        run: export PATH="$PATH:/home/actions-runner/.dotnet/tools" && dotnet CycloneDX ./SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}/SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}.csproj -F json --spec-version 1.6
 
       - name: Upload SBOM file to Dependency Track server
         working-directory: ./src
@@ -62,7 +62,7 @@ jobs:
           -H "Content-Type: multipart/form-data" \
           -H "X-Api-Key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}" \
           -F "project=${{ secrets.DEPENDENCY_TRACK_PROJECT_GUID }}" \
-          -F "bom=@bom.xml"
+          -F "bom=@bom.json"
 
       - name: Pack
         working-directory: ./src/SolidCode.CombinatorialTests.${{ inputs.TARGET_TEST_LIB_NAME }}
